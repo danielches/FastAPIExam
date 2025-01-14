@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/css/pagestyle.css" rel="stylesheet">
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="logo">Liib</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('homepage') }}">Home</a></li>
+                    <li class="dropdown">
+                        <a class="dropbtn">Genres</a>
+                        <ul class="dropdown-content">
+                            {% for genre in genres %}
+                            <li><a href="{{ url_for('genrepage', genre_code=genre.code) }}">{{ genre.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    <li><a href="{{ url_for('popular_books', page=1) }}">Bestsellers</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href="{{ url_for('cart_detail') }}">Cart</a></li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <li class="last"><a href="{{ url_for('profile') }}">{{ user.username }}</a>
+                        <form class="logout-btn" method="post" action="{{ url_for('logout') }}">
+                            <input type="hidden" name="csrf_token" value="{{ csrf_token }}" />
+                            <button type="submit">Logout</button>
+                        </form>
+                    </li>
+                    {% else %}
+                    <li class="last"><a href="{{ url_for('login_page') }}">Login</a><a href="{{ url_for('register_page') }}">Register</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+            <form class="search-bar" action="{{ url_for('search_books') }}" method="get">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token }}" />
+                <input type="text" name="query" value="{{ searchform.query }}" placeholder="Search for books..." class="search-bar" autocomplete="off" maxlength="100">
+                <button>Search</button>
+            </form>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Liib - Life is in books.</p>
+            <div class="social-links">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

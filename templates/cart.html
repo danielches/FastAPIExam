@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>Your Cart</title>
+{% endblock %}
+{% block content %}
+<div class="container">
+<h1>Your Cart</h1>
+<ul>
+  {% for item in items %}
+    <li>
+      {{ item.book.title }} - {{ item.quantity }} x ${{ item.book.price }}
+      = ${{ item.total_price() }}
+      <form action="{{ url_for('remove_from_cart', item_id=item.id) }}" method="POST">
+        <input type="hidden" name="csrf_token" value = "{{ csrf_token }}" />
+        <button type="submit" class="btn btn-danger">Удалить</button>
+      </form>
+    </li>
+  {% endfor %}
+</ul>
+<p>Total Price: ${{ cart.total_price() }}</p>
+</div>
+{% endblock %}

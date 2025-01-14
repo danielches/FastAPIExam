@@ -1,0 +1,42 @@
+{% extends "adminbase.html" %}
+{% block content %}
+    <div class="container">
+        <h1>Manage Books</h1>
+        <a href="{{ url_for('add_book_form') }}" class="btn primary">Add Book</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Description</th>
+                    <th>Photo</th>
+                    <th>Price</th>
+                    <th>Published date</th>
+                    <th>Genre</th>
+                    <th>Buy cnt</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in books %}
+                    <tr>
+                        <td>{{ book.id }}</td>
+                        <td>{{ book.title }}</td>
+                        <td>{{ book.author }}</td>
+                        <td>{{ book.description }}</td>
+                        <td>{{ book.photo }}</td>
+                        <td>{{ book.price }}</td>
+                        <td>{{ book.published_date }}</td>
+                        <td>{{ book.genre.name if book.genre else "Unknown" }}</td>
+                        <td>{{ book.buy_cnt }}</td>
+                        <td class="actions">
+                            <a href="{{ url_for('edit_book_form', book_id=book.id) }}" class="btn primary">Edit</a>
+                            <a href="{{ url_for('delete_book', book_id=book.id) }} " class="btn danger">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

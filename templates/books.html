@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>{{ title }}</title>
+{% endblock %}
+
+{% block content %}
+<section class="books-by-genre">
+    <div class="container">
+        <h1>{{ title }}</h1>
+        <div class="book-grid">
+            {% for book in books %}
+            <div class="book-item">
+                <img src="/static/img/{{ book.photo }}" alt="{{ book.title }}">
+                <h3>{{ book.title }}</h3>
+                <p><strong>Author:</strong> {{ book.author }}</p>
+                <p><strong>Price:</strong> ${{ book.price }}</p>
+                <a href="{{ url_for('book_detail', book_id=book.id) }}" class="btn">View Details</a>
+            </div>
+            {% else %}
+            <p>No books found.</p>
+            {% endfor %}
+        </div>
+
+        <div class="pagination">
+            {% if has_prev %}
+                <a href="{{ url_for('all_books', page=page-1) }}" class="btn">Previous</a>
+            {% endif %}
+
+            {% for num in range(1, total_pages + 1) %}
+                {% if num == page %}
+                    <span class="current-page">{{ num }}</span>
+                {% else %}
+                    <a href="{{ url_for('all_books', page=num) }}" class="btn">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+
+            {% if has_next %}
+                <a href="{{ url_for('all_books', page=page+1) }}" class="btn">Next</a>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

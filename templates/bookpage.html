@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>{{ book.title }}</title>
+{% endblock %}
+{% block content %}
+<section class="book-detail">
+    <div class="container">
+        <div class="book-detail-grid">
+            <div class="book-image">
+                <img src="/static/img/{{ book.photo }}" alt="{{ book.title }}">
+            </div>
+            <div class="book-info">
+                <h1>{{ book.title }}</h1>
+                <p><strong>Author:</strong> {{ book.author }}</p>
+                <p><strong>Genre:</strong> {{ book.genre }}</p>
+                <p><strong>Description:</strong></p>
+                <p>{{ book.description }}</p>
+                <p><strong>Price:</strong> ${{ book.price }}</p>
+
+                <!-- Блок уведомления -->
+                {% if success_message %}
+                    <div class="alert alert-success" role="alert">
+                        {{ success_message }}
+                    </div>
+                {% endif %}
+
+                {% if user.is_authenticated %}
+                    {% if error %}
+                        <div class="form-error">
+                            <p>{{ error }}</p>
+                        </div>
+                    {% endif %}
+
+                    <form method="post">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token }}" />
+                        <div class="form-group">
+                            <label for="quantity">Quantity</label>
+                            <input id="quantity" name="quantity" type="number" value="1" min="1" class="form-control" autocomplete="off" required>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Add to Cart</button>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

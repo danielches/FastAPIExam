@@ -1,0 +1,29 @@
+{% extends "adminbase.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Manage Roles</h1>
+    <a href="/admin/roles/add" class="btn primary">Add Role</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for role in roles %}
+            <tr>
+                <td>{{ role.id }}</td>
+                <td>{{ role.name }}</td>
+                <td>
+                    <a href="/admin/roles/edit/{{ role.id }}" class="btn primary">Edit</a>
+                    <a href="/admin/roles/delete/{{ role.id }}" class="btn danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "adminbase.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Edit Role</h1>
+    <form method="post" action="/admin/roles/edit/{{ role.id }}">
+        <label for="name">Role Name</label>
+        <input type="text" id="name" name="name" value="{{ role.name }}" required />
+        <button type="submit" class="btn primary">Save Changes</button>
+    </form>
+</div>
+{% endblock %}

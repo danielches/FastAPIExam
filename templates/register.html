@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block head %}
+    <title>Register</title>
+{% endblock %}
+
+{% block content %}
+<section class="form-section">
+    <div class="container">
+        <h2>Register</h2>
+
+        {% if error %}
+        <div class="form-error">
+            <p>{{ error }}</p>
+        </div>
+        {% endif %}
+
+        <form method="post">
+            <input type="hidden" name="csrf_token" value="{{ csrf_token }}" />
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input id="username" name="username" type="text" class="form-control" placeholder="Enter your username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="first_name">First name</label>
+                <input id="first_name" name="first_name" type="text" class="form-control" placeholder="Enter your first name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="last_name">Last name</label>
+                <input id="last_name" name="last_name" type="text" class="form-control" placeholder="Enter your last name">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" class="form-control" placeholder="Enter your email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" class="form-control" placeholder="Enter your password" required>
+            </div>
+
+            <div class="form-group">
+                <label for="confirm_password">Confirm Password</label>
+                <input id="confirm_password" name="confirm_password" type="password" class="form-control" placeholder="Enter confirm password" required>
+            </div>
+
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary">Register</button>
+        </form>
+    </div>
+</section>
+{% endblock %}
+
+
+
+
+

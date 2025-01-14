@@ -1,0 +1,31 @@
+{% extends 'adminbase.html' %}
+
+{% block title %}Manage Genres{% endblock %}
+
+{% block content %}
+<h1>Genre Management</h1>
+<div class="container">
+<a href="/admin/genres/add" class="btn primary">Add Genre</a>
+<table>
+    <thead>
+        <tr>
+        <th>Name</th>
+        <th>Code</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for genre in genres %}
+    <tr>
+        <td>{{ genre.name }}</td>
+        <td>{{ genre.code }}</td>
+        <td>
+            <a href="{{ url_for('admin_edit_genre_page', genre_id=genre.id) }}" class="btn primary">Edit</a>
+            <a href="{{ url_for('admin_delete_genre', genre_id=genre.id) }} " class="btn danger">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+    {% endfor %}
+</table>
+</div>
+{% endblock %}

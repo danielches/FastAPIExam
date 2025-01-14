@@ -1,0 +1,25 @@
+{% extends 'adminbase.html' %}
+
+{% block content %}
+<div class="admin-dashboard">
+    <h1>Admin Dashboard</h1>
+    <div class="dashboard-menu">
+        <a href="/admin/genres" class="menu-item">
+            <div class="icon">📚</div>
+            <span>Manage Genres</span>
+        </a>
+        <a href="/admin/books" class="menu-item">
+            <div class="icon">📖</div>
+            <span>Manage Books</span>
+        </a>
+        <a href="/admin/users" class="menu-item">
+            <div class="icon">👤</div>
+            <span>Manage Users</span>
+        </a>
+        <a href="/admin/roles" class="menu-item">
+            <div class="icon">⚙️</div>
+            <span>Manage Roles</span>
+        </a>
+    </div>
+</div>
+{% endblock %}

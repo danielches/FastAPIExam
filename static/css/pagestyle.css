@@ -1,0 +1,369 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f9f9f9;
+}
+.container {
+    width: 90%; /* Сделать контейнер на всю ширину */
+    max-width: 1200px; /* Увеличить максимальную ширину */
+    margin: 0 auto; /* Центрировать контейнер */
+    padding: 20px; /* Добавить внутренние отступы */
+}
+
+/* Header */
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem 0;
+    position: relative; /* Чтобы элементы меню отображались корректно */
+}
+
+.logo {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: auto;
+}
+
+.nav-links li {
+    position: relative; /* Устанавливаем для работы абсолютного позиционирования выпадающего меню */
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar input[type="text"] {
+    padding: 8px 12px;
+    font-size: 1em;
+    border: none;
+    border-radius: 3px 0 0 3px;
+    outline: none;
+    width: 70rem;
+    box-sizing: border-box;
+}
+
+.search-bar button {
+    background-color: #3498db; /* Голубой */
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 0 3px 3px 0;
+    transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+    background-color: #2980b9; /* Темно-голубой при наведении */
+}
+/* Hero Section */
+.hero {
+    color: white;
+    text-align: center;
+    padding: 5rem 1rem;
+}
+
+.hero-text h2 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+}
+
+.hero-text p {
+    color: #2c3e50;
+    margin: 1rem 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Popular Books */
+.popular-books {
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.popular-books .book-grid {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.popular-books .fill-div {
+    background-color: white;
+    border-radius: 5px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 200px;
+}
+
+.popular-books .book-grid a {
+    text-decoration: none;
+    color: #2c3e50;
+    max-width: 200px;
+}
+
+.popular-books a .book-item img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+/* Footer */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+.social-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 0.5rem;
+}
+/* Dropdown Menu */
+.nav-links .dropdown-content {
+    display: none; /* Скрыто по умолчанию */
+    position: absolute;
+    top: 100%; /* Под ссылкой "Categories" */
+    left: 0;
+    background-color: #34495e;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    min-width: 150px;
+    max-height: 300px; /* Ограничиваем высоту меню */
+    overflow-y: auto; /* Добавляем вертикальную прокрутку, если содержимого больше */
+    border-radius: 5px;
+    z-index: 100;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Остальные свойства меню */
+.nav-links .dropdown-content li {
+    border-bottom: 1px solid #2c3e50;
+}
+
+.nav-links .dropdown-content li:last-child {
+    border-bottom: none;
+}
+
+.nav-links .dropdown-content a {
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    display: block;
+}
+
+.nav-links .dropdown-content a:hover {
+    background-color: #2980b9;
+}
+
+.nav-links .dropdown:hover .dropdown-content {
+    display: block; /* Показываем меню при наведении */
+}
+
+nav ul li a:hover {
+    color: #1abc9c; /* Акцентный цвет при наведении */
+}
+
+
+.book-detail {
+    padding: 2rem 0;
+    background-color: #f9f9f9;
+}
+
+.book-detail .book-detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.book-detail .book-image img {
+    max-width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.book-detail .book-info h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.book-detail .book-info p {
+    margin: 0.5rem 0;
+}
+
+.book-detail .book-info .btn {
+    margin-top: 1rem;
+}
+
+
+.books-by-genre {
+    padding: 2rem 0;
+}
+
+.books-by-genre h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.books-by-genre .book-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+
+.books-by-genre .book-item {
+    width: 90%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.books-by-genre .book-item img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.books-by-genre .book-item h3 {
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.books-by-genre .book-item p {
+    margin: 0.5rem 0;
+}
+
+.books-by-genre .book-item .btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+}
+
+
+.form-section {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.form-section button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #2c3e50;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-section button[type="submit"]:hover {
+    background-color: #1abc9c; /* Акцентный цвет */
+}
+
+/* Сообщения */
+.messages {
+    margin-top: 15px;
+}
+
+.alert {
+    padding: 10px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.alert-success {
+    background-color: #2ecc71;
+}
+
+.alert-error {
+    background-color: #e74c3c;
+}
+
+.last{
+    display: flex;
+    flex-direction: row;
+}
+
+.logout-btn button{
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+
+    color: white;
+    padding: 0.5rem 1rem;
+    display: block;
+    border:none;
+    background: transparent;
+}
+
+.logout-btn button:hover {
+    color: #1abc9c; /* Акцентный цвет при наведении */
+}

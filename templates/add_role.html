@@ -1,0 +1,12 @@
+{% extends "adminbase.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Add Role</h1>
+    <form method="post" action="/admin/roles/add">
+        <label for="name">Role Name</label>
+        <input type="text" id="name" name="name" required />
+        <button type="submit" class="btn primary">Add Role</button>
+    </form>
+</div>
+{% endblock %}
